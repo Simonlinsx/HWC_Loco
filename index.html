@@ -4,28 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paper Promotion - [Paper Title]</title>
-    <meta name="description" content="This website will provide a detailed introduction to the relevant content of [Paper Title], including the research background, methods, results, etc., presenting the significant value of this paper to you.">
-    <meta name="keywords" content="Paper promotion, [Paper Title], [Research field keywords], Academic research">
+    <title>Humanoid Whole-Body Locomotion on Narrow Terrain via Dynamic Balance and Reinforcement Learning</title>
+    <meta name="description" content="This website provides a detailed introduction to the research on humanoid whole - body locomotion on narrow terrain via dynamic balance and reinforcement learning, including research background, methods, results, etc.">
+    <meta name="keywords" content="Humanoid locomotion, Dynamic balance, Reinforcement learning, Narrow terrain">
     <style>
         body {
             font-family: 'Times New Roman', serif;
             background-color: #ffffff;
-            color: #333;
+            color: #000000; /* 设置字体颜色为黑色 */
             margin: 0;
             padding: 0;
         }
 
         header {
-            background-color: #1E88E5;
-            color: white;
-            text-align: center;
             padding: 20px;
+            text-align: center;
         }
 
         nav {
-            background-color: #1565C0;
-            color: white;
+            background-color: #f0f0f0; /* 将导航栏背景改为浅灰色 */
+            color: #000000;
         }
 
         nav ul {
@@ -41,7 +39,7 @@
         }
 
         nav ul li a {
-            color: white;
+            color: #000000;
             text-decoration: none;
             padding: 10px 0;
             display: block;
@@ -62,17 +60,16 @@
         }
 
         h2 {
-            color: #1E88E5;
-            border-bottom: 1px solid #ddd;
+            color: #000000;
+            border-bottom: 1px solid #ccc; /* 标题下划线颜色调整 */
             padding-bottom: 5px;
         }
 
         footer {
-            background-color: #1E88E5;
-            color: white;
-            text-align: center;
             padding: 10px;
+            text-align: center;
         }
+
         img {
             max-width: 100%;
             height: auto;
@@ -80,13 +77,50 @@
             margin: 20px auto;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
+        /* 添加按钮样式 */
+       .button {
+            display: inline-block;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 20px;
+            margin: 10px;
+            color: white;
+        }
+
+       .button-paper {
+            background-color: #333;
+        }
+
+       .button-arxiv {
+            background-color: #666;
+        }
+
+       .button-video {
+            background-color: #999;
+        }
+
+       .button-code {
+            background-color: #bbb;
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <h1>[HWC-Loco: A Hierarchical Whole-Body Control Approach to Robust Humanoid Locomotion]</h1>
-        <p>Author: [Author's Name] | Published in: [Journal Name] | Publication Date: [Date]</p>
+        <h1>Humanoid Whole-Body Locomotion on Narrow Terrain via Dynamic Balance and Reinforcement Learning</h1>
+        <p>Weiji Xie<sup>1,2</sup>, Chenjia Bai<sup>1*</sup>, Jiyuan Shi<sup>1</sup>, Junkai Yang<sup>1,2</sup>, Yunfei Ge<sup>1</sup>, Weinan Zhang<sup>2</sup>, Xuelong Li<sup>1</sup><br>
+            <sup>1</sup>Institute of Artificial Intelligence (TeleAI), <sup>2</sup>Shanghai Jiao Tong University</p>
+        <!-- 这里可以添加机构logo等内容，以下是简单示例 -->
+        <img src="logo1.png" alt="TeleAI Logo" style="width: 150px; margin-right: 20px;">
+        <img src="logo2.png" alt="SJTU Logo" style="width: 150px;">
+        <div>
+            <a href="#" class="button button-paper">Paper</a>
+            <a href="#" class="button button-arxiv">arXiv</a>
+            <a href="#" class="button button-video">Video</a>
+            <a href="#" class="button button-code">Code (Coming Soon)</a>
+        </div>
     </header>
     <nav>
         <ul>
@@ -97,21 +131,21 @@
         </ul>
     </nav>
     <main>
-        <section id="Abstract">
+        <section id="abstract">
             <h2>Abstract</h2>
             <p>Humanoid robots, capable of assuming human roles in various workplaces, have become essential to the advancement of embodied intelligence. However, as robots with complex physical structures, learning a control model that can operate robustly across diverse environments remains inherently challenging, particularly under the discrepancies between training and deployment environments. In this study, we propose HWC-Loco, a robust whole-body control algorithm tailored for humanoid locomotion tasks. By reformulating policy learning as a robust optimization problem, HWC-Loco explicitly learns to recover from safety-critical scenarios. While prioritizing safety guarantees, overly conservative behavior can compromise the robot's ability to complete the given tasks. To tackle this challenge, HWC-Loco leverages a hierarchical policy for robust control. This policy can dynamically resolve the trade-off between goal-tracking and safety recovery, guided by human behavior norms and dynamic constraints. To evaluate the performance of HWC-Loco, we conduct extensive comparisons against state-of-the-art humanoid control models, demonstrating HWC-Loco's superior performance across diverse terrains, robot structures, and locomotion tasks under both simulated and real-world environments.</p>
         </section>
-        <section id="Method">
+        <section id="method">
             <h2>Research Method</h2>
             <p>This section introduces the research methods used in the paper, such as experimental design and data collection methods. [Detailed research method text]</p>
             <!-- 插入 pipeline 图 -->
             <img src="Pipeline.png" alt="Research Pipeline Diagram">
         </section>
-        <section id="Experiment">
+        <section id="experiment">
             <h2>Experiment</h2>
             <p>Describe the experiment process in the paper, including experimental setup, data collection, etc. [Detailed experiment text]</p>
         </section>
-        <section id="Conclusion">
+        <section id="conclusion">
             <h2>Conclusion</h2>
             <p>Summarize the main conclusions of the research, as well as the contributions of this research to the field and future research directions. [Detailed conclusion text]</p>
         </section>
