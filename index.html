@@ -11,7 +11,7 @@
         body {
             font-family: 'Times New Roman', serif;
             background-color: #ffffff;
-            color: #000000; /* 设置字体颜色为黑色 */
+            color: #000000;
             margin: 0;
             padding: 0;
         }
@@ -22,7 +22,7 @@
         }
 
         nav {
-            background-color: #f0f0f0; /* 将导航栏背景改为浅灰色 */
+            background-color: #f0f0f0;
             color: #000000;
         }
 
@@ -61,7 +61,7 @@
 
         h2 {
             color: #000000;
-            border-bottom: 1px solid #ccc; /* 标题下划线颜色调整 */
+            border-bottom: 1px solid #ccc;
             padding-bottom: 5px;
         }
 
@@ -79,7 +79,7 @@
         }
 
         /* 添加按钮样式 */
-       .button {
+      .button {
             display: inline-block;
             padding: 10px 20px;
             text-align: center;
@@ -89,20 +89,27 @@
             color: white;
         }
 
-       .button-paper {
+      .button-paper {
             background-color: #333;
         }
 
-       .button-arxiv {
+      .button-arxiv {
             background-color: #666;
         }
 
-       .button-video {
+      .button-video {
             background-color: #999;
         }
 
-       .button-code {
+      .button-code {
             background-color: #bbb;
+        }
+
+        video {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
         }
     </style>
 </head>
@@ -111,7 +118,7 @@
     <header>
         <h1>HWC-Loco: A Hierarchical Whole-Body Control Approach to Robust Humanoid Locomotion</h1>
         <p>Anonymous authors</p>
-            <!-- 这里可以添加机构logo等内容，以下是简单示例 -->
+        <!-- 这里可以添加机构logo等内容，以下是简单示例 -->
         <img src="logo1.png" alt="Logo" style="width: 150px; margin-right: 20px;">
         <img src="logo2.png" alt="Logo" style="width: 150px;">
         <div>
@@ -143,16 +150,17 @@
         <section id="experiment">
             <h2>Experiment</h2>
             <p>Describe the experiment process in the paper, including experimental setup, data collection, etc. [Detailed experiment text]</p>
-              
+            <p></p>
             <p>Normal State: Policy rollout's state distribution in the original learning environment]</p>
-            <img src="Normal_states.jpg" alt="Normal States">   
-
+            <img src="Normal_states.jpg" alt="Normal States">
             <p>Extreme State: Policy's state distribution in the extreme cases]</p>
-            <img src="Extreme_states.jpg" alt="Extreme States">   
-        
+            <img src="Extreme_states.jpg" alt="Extreme States">
             <p>Proportion of Goal-tracking Policy when training high-level policy]</p>
-            <img src="Sensitivity Analysis.jpg" alt="Sensitivity Analysis">  
-
+            <img src="Sensitivity Analysis.jpg" alt="Sensitivity Analysis">
+            <!-- 添加视频 -->
+            <video src="Human-like behavior.mp4" controls>
+                Your browser does not support the video tag.
+            </video>
         </section>
         <section id="conclusion">
             <h2>Conclusion</h2>
