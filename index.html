@@ -59,10 +59,17 @@
             margin-bottom: 30px;
         }
 
+        h1 {
+            font-size: 36px;      /* 调大字体尺寸 */
+            font-weight: bold;   /* 加粗字体 */
+            margin: 20px 0;      /* 增加上下边距 */
+            line-height: 1.2;     /* 优化行高 */
+        }
+
         h2 {
             color: #000000;
             border-bottom: 1px solid #ccc;
-            padding-bottom: 5px;
+            padding-bottom: 10px;
         }
 
         footer {
@@ -90,11 +97,25 @@
         }
 
         .button-paper { background-color: #333; }
-        .button-arxiv { background-color: #666; }
-        .button-video { background-color: #999; }
-        .button-code { background-color: #bbb; }
+        .button-arxiv { background-color: #333; }
+        .button-video { background-color: #333; }
+        .button-code { background-color: #333; }
 
-        /* 视频区域 */
+        .youtube-container {
+            width: 80%;          /* 控制视频宽度 */
+            max-width: 1000px;   /* 最大宽度限制 */
+            margin: 20px auto;   /* 上下边距 + 水平居中 */
+            border-radius: 12px; /* 圆角效果 */
+            overflow: hidden;    /* 隐藏溢出内容 */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* 添加投影 */
+        }
+
+        .youtube-container iframe {
+            width: 100%;         /* 充满容器宽度 */
+            height: 400px;       /* 固定高度（根据宽高比可调整）*/
+            display: block;      /* 消除行内元素间隙 */
+        }
+
         .video-container {
             display: flex;  
             justify-content: center; 
@@ -116,13 +137,15 @@
             display: block;
         }
 
+
         .video-text {
-            position: static;  /* 取消 absolute 使其在视频下方 */
-            background: none;  /* 取消背景色 */
+            position: static;
+            background: none;
             color: black;
             padding-top: 5px;
-            font-size: 14px;
+            font-size: 20px;
             text-align: center;
+            font-weight: bold; /* 新增加粗样式 */
         }
 
         /* 响应式布局 */
@@ -142,12 +165,21 @@
 <body>
     <header>
         <h1>HWC-Loco: A Hierarchical Whole-Body Control Approach to Robust Humanoid Locomotion</h1>
-        <p>Anonymous authors</p>
-        <img src="logo1.png" alt="Logo" style="width: 150px; margin-right: 20px;">
-        <img src="logo2.png" alt="Logo" style="width: 150px;">
+        <p>Sixu Lin, Guanren Qiao, Yunxin Tai, Ang Li 1, Kui Jia, Guiliang Liu</p>
+        <!-- <img src="CUHKSZ.png" alt="Logo" style="width: 150px; margin-right: 20px;">
+        <img src="HITSZ.jpeg" alt="Logo" style="width: 150px;">
+        <img src="Dexforce.jpg" alt="Logo" style="width: 150px;"> -->
+        <div style="display: flex; 
+                    justify-content: center;  /* 改为居中排列 */
+                    align-items: center; 
+                    gap: 5px;  /* 缩小间距 */">
+            <img src="CUHKSZ.png" alt="Logo" style="width: 100px; margin: 0 8px;">  <!-- 添加横向margin -->
+            <img src="HITSZ.png" alt="Logo" style="width: 100px; margin: 0 8px;">
+            <img src="Dexforce.png" alt="Logo" style="width: 150px; margin: 0 8px;">
+        </div>
         <div>
-            <a href="#" class="button button-paper">Paper</a>
-            <a href="#" class="button button-arxiv">arXiv</a>
+            <a href="https://arxiv.org/pdf/2503.00923" class="button button-paper" target="_blank">Paper</a>
+            <a href="https://arxiv.org/pdf/2503.00923" class="button button-arxiv" target="_blank">arXiv</a>
             <a href="#" class="button button-video">Video</a>
             <a href="#" class="button button-code">Code (Coming Soon)</a>
         </div>
@@ -156,21 +188,29 @@
     <nav>
         <ul>
             <li><a href="#abstract">Abstract</a></li>
-            <li><a href="#method">Research Method</a></li>
+            <li><a href="#method">Method</a></li>
             <li><a href="#experiment">Experiment</a></li>
             <li><a href="#conclusion">Conclusion</a></li>
         </ul>
     </nav>
 
     <main>
+        <div class="youtube-container">
+            <iframe 
+                src="https://www.youtube.com/embed/TZc8rGU_d88" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
         <section id="abstract">
             <h2>Abstract</h2>
             <p>Humanoid robots, capable of assuming human roles in various workplaces, have become essential to the advancement of embodied intelligence. However, as robots with complex physical structures, learning a control model that can operate robustly across diverse environments remains inherently challenging, particularly under the discrepancies between training and deployment environments. In this study, we propose HWC-Loco, a robust whole-body control algorithm tailored for humanoid locomotion tasks. By reformulating policy learning as a robust optimization problem, HWC-Loco explicitly learns to recover from safety-critical scenarios. While prioritizing safety guarantees, overly conservative behavior can compromise the robot's ability to complete the given tasks. To tackle this challenge, HWC-Loco leverages a hierarchical policy for robust control. This policy can dynamically resolve the trade-off between goal-tracking and safety recovery, guided by human behavior norms and dynamic constraints. To evaluate the performance of HWC-Loco, we conduct extensive comparisons against state-of-the-art humanoid control models, demonstrating HWC-Loco's superior performance across diverse terrains, robot structures, and locomotion tasks under both simulated and real-world environments.</p>
         </section>
         <section id="method">
             <h2>Research Method</h2>
-            <p>Overview of HWC-Loco: The framework consists of two stages: (a) Training goal-tracking policy to effectively enable human-like locomotion across diverse terrains and safety recovery policy to recover from safety-ciritical states (i.e., extreme-case). (b) Training the high-level planning policy to select between the two pre-trained low-level policies, thereby ensuring locomotion stability and consistency.</p>
             <img src="Pipeline.png" alt="Research Pipeline Diagram">
+            <p>Overview of HWC-Loco: The framework consists of two stages: (a) Training goal-tracking policy to effectively enable human-like locomotion across diverse terrains and safety recovery policy to recover from safety-ciritical states (i.e., extreme-case). (b) Training the high-level planning policy to select between the two pre-trained low-level policies, thereby ensuring locomotion stability and consistency.</p>
         </section>
 
         <section id="experiment">
@@ -206,7 +246,7 @@
                     <p class="video-text">Soft and Slippy Terrain</p>
                 </div>
             </div>
-            <div class="video-container"></div>
+            <div class="video-container">
                 <div class="video-wrapper">
                     <video src="Hard_slope-1.mp4" controls></video>
                     <p class="video-text">25-degree of Slope</p>
@@ -216,7 +256,7 @@
                     <p class="video-text">15cm Stairs</p>
                 </div>
             </div>
-            <div class="video-container"></div>
+            <div class="video-container">
                 <div class="video-wrapper">
                     <video src="Malicious Commands.mp4" controls></video>
                     <p class="video-text">Malicious Commands</p>
@@ -226,17 +266,7 @@
                     <p class="video-text">Discrete Terrain</p>
                 </div>
             </div>
-            <div class="video-container"></div>
-                <div class="video-wrapper">
-                    <video src="Malicious Commands.mp4" controls></video>
-                    <p class="video-text">Malicious Commands</p>
-                </div>
-                <div class="video-wrapper">
-                    <video src="Discrete Terrain.mp4" controls></video>
-                    <p class="video-text">Discrete Terrain</p>
-                </div>
-            </div>
-            <div class="video-container"></div>
+            <div class="video-container">
                 <div class="video-wrapper">
                     <video src="Up_slope.mp4" controls></video>
                     <p class="video-text">Up Slope</p>
@@ -246,14 +276,14 @@
                     <p class="video-text">Down Slope</p>
                 </div>
             </div>
-            <div class="video-container"></div>
+            <div class="video-container">
                 <div class="video-wrapper">
                     <video src="Uneven_slope1.mp4" controls></video>
                     <p class="video-text">Uneven Slope</p>
                 </div>
                 <div class="video-wrapper">
                     <video src="Uneven_slope2.mp4" controls></video>
-                    <p class="video-text">Uneven Slope</p>
+                    <p class="video-text">Uneven Terrain</p>
                 </div>
             </div>
             <div class="video-container">
@@ -265,7 +295,8 @@
         </section>
         <section id="conclusion">
             <h2>Conclusion</h2>
-            <p>Summarize the main conclusions of the research, as well as the contributions of this research to the field and future research directions.</p>
+            <p>We introduce HWC-Loco, a hierarchical control framework for humanoid robots that incorporates an embedded safety recovery mechanism. This framework has been validated across various locomotion tasks, demonstrating exceptional scalability, robustness, naturalness, and adaptability across diverse tasks and scenarios. Notably, the safety mechanism in HWC-Loco extends beyond locomotion, enabling reliable performance in complex tasks through a dynamic task-safety balance. This ensures robust operation in real-world deployments, positioning HWC-Loco as a foundational solution for safety-critical applications such as industrial automation and assistive robotics.
+                A promising direction for future research is integrating HWC-Loco with upper-body manipulation skills, enabling safety-critical control across a broader range of tasks involving different objects.</p>
         </section>
     </main>
 
