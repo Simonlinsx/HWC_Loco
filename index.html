@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HWC-Loco: A Hierarchical Whole-Body Control Approach to Robust Humanoid Locomotion</title>
+    <meta name="description" content="This website provides a detailed introduction to the research on humanoid whole-body locomotion on narrow terrain via dynamic balance and reinforcement learning, including research background, methods, results, etc.">
+    <meta name="keywords" content="Humanoid locomotion, Dynamic balance, Reinforcement learning, Narrow terrain">
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #ffffff;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #f0f0f0;
+            color: #000000;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #000000;
+            text-decoration: none;
+            padding: 10px 0;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #000000;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+
+        footer {
+            padding: 10px;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 按钮样式 */
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 20px;
+            margin: 10px;
+            color: white;
+        }
+
+        .button-paper { background-color: #333; }
+        .button-arxiv { background-color: #666; }
+        .button-video { background-color: #999; }
+        .button-code { background-color: #bbb; }
+
+        /* 视频区域 */
+        .video-container {
+            display: flex;  
+            justify-content: center; 
+            gap: 20px; 
+            flex-wrap: wrap; /* 适应小屏幕 */
+            margin-top: 20px;
+        }
+
+        .video-wrapper {
+            display: flex;
+            flex-direction: column; /* 让视频和文本垂直排列 */
+            align-items: center; /* 让文本居中 */
+            width: 45%; 
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .video-text {
+            position: static;  /* 取消 absolute 使其在视频下方 */
+            background: none;  /* 取消背景色 */
+            color: black;
+            padding-top: 5px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        /* 响应式布局 */
+        @media (max-width: 768px) {
+            .video-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .video-wrapper {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>HWC-Loco: A Hierarchical Whole-Body Control Approach to Robust Humanoid Locomotion</h1>
+        <p>Anonymous authors</p>
+        <img src="logo1.png" alt="Logo" style="width: 150px; margin-right: 20px;">
+        <img src="logo2.png" alt="Logo" style="width: 150px;">
+        <div>
+            <a href="#" class="button button-paper">Paper</a>
+            <a href="#" class="button button-arxiv">arXiv</a>
+            <a href="#" class="button button-video">Video</a>
+            <a href="#" class="button button-code">Code (Coming Soon)</a>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#abstract">Abstract</a></li>
+            <li><a href="#method">Research Method</a></li>
+            <li><a href="#experiment">Experiment</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="abstract">
+            <h2>Abstract</h2>
+            <p>Humanoid robots, capable of assuming human roles in various workplaces, have become essential to the advancement of embodied intelligence. However, as robots with complex physical structures, learning a control model that can operate robustly across diverse environments remains inherently challenging, particularly under the discrepancies between training and deployment environments. In this study, we propose HWC-Loco, a robust whole-body control algorithm tailored for humanoid locomotion tasks. By reformulating policy learning as a robust optimization problem, HWC-Loco explicitly learns to recover from safety-critical scenarios. While prioritizing safety guarantees, overly conservative behavior can compromise the robot's ability to complete the given tasks. To tackle this challenge, HWC-Loco leverages a hierarchical policy for robust control. This policy can dynamically resolve the trade-off between goal-tracking and safety recovery, guided by human behavior norms and dynamic constraints. To evaluate the performance of HWC-Loco, we conduct extensive comparisons against state-of-the-art humanoid control models, demonstrating HWC-Loco's superior performance across diverse terrains, robot structures, and locomotion tasks under both simulated and real-world environments.</p>
+        </section>
+        <section id="method">
+            <h2>Research Method</h2>
+            <p>Overview of HWC-Loco: The framework consists of two stages: (a) Training goal-tracking policy to effectively enable human-like locomotion across diverse terrains and safety recovery policy to recover from safety-ciritical states (i.e., extreme-case). (b) Training the high-level planning policy to select between the two pre-trained low-level policies, thereby ensuring locomotion stability and consistency.</p>
+            <img src="Pipeline.png" alt="Research Pipeline Diagram">
+        </section>
+
+        <section id="experiment">
+            <h2>Experiment</h2>
+            <!-- <p>Describe the experiment process in the paper, including experimental setup, data collection, etc.</p> -->
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <video src="Human-like.mp4" controls></video>
+                    <p class="video-text">Human-like Locomotion</p>
+                </div>
+                <div class="video-wrapper">
+                    <video src="Continuous_stairs.mp4" controls></video>
+                    <p class="video-text">Continuous Stairs</p>
+                </div>
+            </div>
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <video src="OmniControl.mp4" controls></video>
+                    <p class="video-text">Omni-directional Control</p>
+                </div>
+                <div class="video-wrapper">
+                    <video src="Omni_disturbance.mp4" controls></video>
+                    <p class="video-text">Omni-directional Disturbance</p>
+                </div>
+            </div>
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <video src="Slippy_kick.mp4" controls></video>
+                    <p class="video-text">Recovery from Extreme-case</p>
+                </div>
+                <div class="video-wrapper">
+                    <video src="Soft_slippy_terrain.mp4" controls></video>
+                    <p class="video-text">Soft and Slippy Terrain</p>
+                </div>
+            </div>
+            <div class="video-container"></div>
+                <div class="video-wrapper">
+                    <video src="Hard_slope-1.mp4" controls></video>
+                    <p class="video-text">25-degree of Slope</p>
+                </div>
+                <div class="video-wrapper">
+                    <video src="Stairs-1.mp4" controls></video>
+                    <p class="video-text">15cm Stairs</p>
+                </div>
+            </div>
+            <div class="video-container"></div>
+                <div class="video-wrapper">
+                    <video src="Malicious Commands.mp4" controls></video>
+                    <p class="video-text">Malicious Commands</p>
+                </div>
+                <div class="video-wrapper">
+                    <video src="Discrete Terrain.mp4" controls></video>
+                    <p class="video-text">Discrete Terrain</p>
+                </div>
+            </div>
+            <div class="video-container"></div>
+                <div class="video-wrapper">
+                    <video src="Malicious Commands.mp4" controls></video>
+                    <p class="video-text">Malicious Commands</p>
+                </div>
+                <div class="video-wrapper">
+                    <video src="Discrete Terrain.mp4" controls></video>
+                    <p class="video-text">Discrete Terrain</p>
+                </div>
+            </div>
+            <div class="video-container"></div>
+                <div class="video-wrapper">
+                    <video src="Up_slope.mp4" controls></video>
+                    <p class="video-text">Up Slope</p>
+                </div>
+                <div class="video-wrapper">
+                    <video src="Down_slope.mp4" controls></video>
+                    <p class="video-text">Down Slope</p>
+                </div>
+            </div>
+            <div class="video-container"></div>
+                <div class="video-wrapper">
+                    <video src="Uneven_slope1.mp4" controls></video>
+                    <p class="video-text">Uneven Slope</p>
+                </div>
+                <div class="video-wrapper">
+                    <video src="Uneven_slope2.mp4" controls></video>
+                    <p class="video-text">Uneven Slope</p>
+                </div>
+            </div>
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <video src="Forward_walking.mp4" controls></video>
+                    <p class="video-text">Walking Forward</p>
+                </div>
+            </div>
+        </section>
+        <section id="conclusion">
+            <h2>Conclusion</h2>
+            <p>Summarize the main conclusions of the research, as well as the contributions of this research to the field and future research directions.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Copyright &copy; [Year] [Copyright Holder]. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
